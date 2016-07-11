@@ -1,0 +1,15 @@
+<% @page_title = "Edit orders" %>
+
+<div>
+  <h2>Update Order</h2>
+
+  <%= form_for @order do |f| %>
+
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+
+    <divs>
+      <%= submit_tag("Update Order") %>
+    </div>
+
+  <% end %>
+</div>

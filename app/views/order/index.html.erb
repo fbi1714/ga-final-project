@@ -1,0 +1,47 @@
+<% @page_title = "All Orders" %>
+<div class="container">
+<h2 class="title"><%= @page_title %></h2>
+<table  class="responsive-table">
+  <thead>
+    <tr>
+      <!-- <th>ID</th> -->
+      <th data-field="description">Description</th>
+      <th data-field="order_number">Order Number</th>
+      <th data-field="created_at">Created At</th>
+      <th data-field="updated_at">Updated At</th>
+      <th data-field="actions">Actions</th>
+    </tr>
+  </thead>
+    <% @posts.each do |order| %>
+   <tbody>
+    <tr>
+      <!-- <td><%#= order.id %></td> -->
+      <td><%= order.description %></td>
+      <td><%= order.order_number.to_s[0..2]%>.<%= order.order_number.to_s[3..4] %>.<%= order.order_number.to_s[5..7] %></td>
+      <td><%= order.created_at.strftime("%d/%m/%Y : %X")  %></td>
+      <td><%= order.updated_at.strftime("%d/%m/%Y : %X")  %></td>
+      <td>
+        <%= link_to new_order_path( order.id ) do %>
+          <i class="material-icons color tooltipped  data-position="left" data-delay="10" data-tooltip="add" ">add</i>
+        <% end %>
+        <%= link_to edit_order_path( order.id ) do %>
+          <i class="material-icons color tooltipped data-position="bottom" data-delay="10" data-tooltip="edit" ">edit</i>
+        <% end %>
+        <%= link_to order_path( order.id ), :method => :delete do %>
+          <i class="material-icons color tooltipped data-position="top" data-delay="10" data-tooltip="delete" ">delete</i>
+        <% end %>
+        <%#= link_to( "New", new_order_path( order.id )) %>
+        <%# link_to( "Edit", edit_order_path( order.id )) %>
+        <%# link_to( "Delete", order_path( order.id ), :method => :delete ) %>
+      </td>
+    </tr>
+  </tbody>
+    <% end %>
+
+</table>
+  <div>
+    <p></p>
+    <%= will_paginate @posts, :previous_label => '<i class="material-icons">chevron_left</i>', :next_label => '<i class="material-icons">chevron_right</i>', :renderer => ApplicationHelper::LinkRenderer %>
+  </div>
+  <div id="time"><% @hash[:pods]["Result"][0][0..7] -%></div>
+</div>

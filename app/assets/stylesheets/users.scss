@@ -1,0 +1,104 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "materialize";
+
+.field_with_errors{
+  display: inline;
+}
+
+.field_with_errors input{
+  border: 1px solid red;
+}
+
+img.responsive-img {
+  max-height: 100%;
+  height: 60px;
+  position: relative;
+  top: 2px;
+  left: 10px;
+}
+
+.material-icons.color {
+  color: #000;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .container#forma{
+      width: 40%;
+  }
+  .container#copyright{
+    text-align: center;
+  }
+  .row .col.s4{
+    text-align: center;
+  }
+
+  select{
+    height: 1.5rem;
+    width: 100%;
+  }
+
+  .page-footer{
+    color: #fff;
+  }
+  .row .col.s4#black{
+    background-color: hotpink;
+    font-size: 12px;
+    padding: 5x;
+  }
+  .dropdown-content li > a, .dropdown-content li > span {
+     color: #000;
+   }
+   .select-wrapper span.caret{
+     color: #fff;
+   }
+   .select-wrapper input.select-dropdown{
+    border-bottom: 1px solid #fff;
+   }
+
+   .input-field input[type=text]:disabled {
+     border-bottom: 1px solid #fff;
+   }
+
+   input[type=password]:focus:not([readonly]) {
+      border-bottom: 1px solid #b0bec5;
+      box-shadow: 0 1px 0 0 #b0bec5;
+    }
+    input[type=email]:focus:not([readonly]) {
+       border-bottom: 1px solid #b0bec5;
+       box-shadow: 0 1px 0 0 #b0bec5;
+     }
+     input[type=text]:focus:not([readonly]) {
+        border-bottom: 1px solid #b0bec5;
+        box-shadow: 0 1px 0 0 #b0bec5;
+      }
+    .waves-effect#centro {
+      margin-left: 40%;
+    }
+     label#icone{
+      color: #fff;
+    }
+    input[type=text]#icon_prefix{
+      border-bottom: 1px solid #fff;
+    }
+    .input-field form label#icone{
+      left: -1.6rem;
+    }
+    .error-msg{
+      color: #b0bec5;
+    }
+    .login-msg{
+      color: #000;
+      text-align: center;
+      font-weight: bold;
+    }

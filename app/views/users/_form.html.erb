@@ -1,0 +1,39 @@
+<div class="row">
+  <% if @user.errors.any? %>
+  <ol>
+    <% @user.errors.full_messages do |msg| %>
+    <li class="error-msg"><%= msg %></li>
+    <% end %>
+  </ol>
+<% end %>
+<div class="col s4"></div>
+<%= form_for(@user, :html => { :class => 'col s12' }) do |f| %>
+  <div clas="row">
+  <div class="input-field col s12">
+    <%= f.label :email %>
+    <%= f.email_field :email, :required => true %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= f.label :password %>
+    <%= f.password_field :password, :required => true %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, :required => true %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= f.submit "Submit", class: 'waves-effect blue-grey lighten-3 btn', id:'centro' %>
+  </div>
+  </div>
+  <div class="col s4"></div>
+
+</div>
+<% end %>

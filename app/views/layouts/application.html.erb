@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= "#{@page_title}" if @page_title %></title>
+  <!-- <%= favicon_link_tag 'favicon-32x32' %> -->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><%= link_to "All users", users_path, :class => "blue-grey-text text-lighten-2" %></li>
+    <li><%= link_to "View/Edit Profile", @current_user, :class => "blue-grey-text text-lighten-3" %></li>
+    <li><%= link_to "Logout", logout_path( @current_user ), :method => :delete, :class => "blue-grey-text text-lighten-3" %></li>
+  </ul>
+
+
+  <nav>
+   <div class="nav-wrapper blue-grey lighten-3">
+    <a href="/" class="brand-logo left"><%= image_tag("logo.png", :class=>"responsive-img") %></a>
+     <ul id="nav-mobile" class="right hide-on-med-and-down">
+       <% if !@current_user %>
+       <li><%= link_to "Create an account", new_user_path%></li>
+       <li><%= link_to "Login", login_path %></li>
+       <% end %>
+       <% if @current_user %>
+       <li>
+         <%= link_to "Orders", order_index_path %>
+         <!-- <i class="material-icons tooltipped data-position="bottom" data-delay="50" data-tooltip="Orders" ">reorder</i> -->
+         <%# end %>
+       </li>
+       <!-- <li><a href="sass.html"><i class="material-icons">search</i></a></li> -->
+       <li><%= link_to "Drawer App", drawer_index_path %></li>
+       <li><a class="dropdown-button" data-activates="dropdown1">Users</a></li>
+        <% end %>
+
+
+
+   </ul>
+   </div>
+ </nav>
+ </header>
+
+  <!--
+    "Show all users" - All the time
+    "View a profile" - If I am logged in
+    "Edit a user" -  If I am logged in
+    "Delete an account" - If I am logged in
+    "Logout" - If I am logged in
+
+    "Create an account" - If I am not logged in
+   -->
+<main>
+<%= yield %>
+</main>
+
+<footer class="page-footer blue-grey lighten-3">
+          <div class="container">
+            <div class="row">
+              <!-- Currency Design -->
+              <div class="col s4">
+                <div class="row">
+                      <div class="input-field col s4">
+                         <select>
+                           <option value="0">AUD</option>
+                           <option value="1" selected>USD</option>
+                           <option value="2">BGN</option>
+                           <option value="3">BRL</option>
+                           <option value="4">CAD</option>
+                           <option value="5">CHF</option>
+                           <option value="6">CNY</option>
+                           <option value="7">CZK</option>
+                           <option value="8">DKK</option>
+                           <option value="9">EUR</option>
+                           <option value="10">GBP</option>
+                           <option value="11">HKD</option>
+                           <option value="12">HRK</option>
+                           <option value="13">HUF</option>
+                           <option value="14">IDR</option>
+                           <option value="15">ILS</option>
+                           <option value="16">INR</option>
+                           <option value="17">JPY</option>
+                           <option value="18">KRW</option>
+                           <option value="19">MXN</option>
+                           <option value="20">MYR</option>
+                           <option value="21">NOK</option>
+                           <option value="22">NZD</option>
+                           <option value="23">PHP</option>
+                           <option value="24">PLN</option>
+                           <option value="25">RON</option>
+                           <option value="26">RUB</option>
+                           <option value="27">SEK</option>
+                           <option value="28">SGD</option>
+                           <option value="29">THB</option>
+                           <option value="30">TRY</option>
+                           <option value="31">ZAR</option>
+                         </select>
+                           <label class="white-text" for="">From</label>
+                      </div>
+                      <div class="input-field col s4">
+                         <select>
+                           <option value="0" selected>AUD</option>
+                           <option value="1">USD</option>
+                           <option value="2">BGN</option>
+                           <option value="3">BRL</option>
+                           <option value="4">CAD</option>
+                           <option value="5">CHF</option>
+                           <option value="6">CNY</option>
+                           <option value="7">CZK</option>
+                           <option value="8">DKK</option>
+                           <option value="9">EUR</option>
+                           <option value="10">GBP</option>
+                           <option value="11">HKD</option>
+                           <option value="12">HRK</option>
+                           <option value="13">HUF</option>
+                           <option value="14">IDR</option>
+                           <option value="15">ILS</option>
+                           <option value="16">INR</option>
+                           <option value="17">JPY</option>
+                           <option value="18">KRW</option>
+                           <option value="19">MXN</option>
+                           <option value="20">MYR</option>
+                           <option value="21">NOK</option>
+                           <option value="22">NZD</option>
+                           <option value="23">PHP</option>
+                           <option value="24">PLN</option>
+                           <option value="25">RON</option>
+                           <option value="26">RUB</option>
+                           <option value="27">SEK</option>
+                           <option value="28">SGD</option>
+                           <option value="29">THB</option>
+                           <option value="30">TRY</option>
+                           <option value="31">ZAR</option>
+                         </select>
+                           <label class="white-text" for="">To</label>
+                      </div>
+                      <div class="input-field col s4" id="result">
+                           <!-- <input id="result" type="text" disabled> -->
+                           <!-- <label class="white-text" for="">Exchange</label> -->
+                      </div>
+                    </div>
+              </div>
+
+
+
+              <!-- Middle Div - Leave it blank -->
+              <div class="col s4"><br /></div>
+              <!-- Fixer io API -->
+              <div class="col s4">
+                <div class="row">
+                    <div class="input-field col s6">
+                      <!-- <input id="icon_prefix" type="text" name"city"> -->
+                      <%= form_for "/orders", :method => :get do %>
+                        <!-- <i class="material-icons prefix" id="icone">query_builder</i> -->
+                        <%= text_field :text ,:name,:class=>'validate',:id=>'icon_prefix' %>
+                        <label for="icon_prefix" id="icone">Time in <%= params[:text] ? params[:text][:name] : "Sydney" %></label>
+                      <% end %>
+                    </div>
+                    <div class="input-field col s6" id="city">
+                      <input id="result" type="text" disabled>
+                      <label class="white-text" for=""><%= @hash[:pods]["Result"][0][0..10] %></label>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Copyright Mark -->
+          <div class="footer-copyright">
+            <div class="container" id="copyright">
+              &copy; <%= copyright_notice_year_range(1977) %> <%= link_to " BAC Systems Pty Limited", "/", :class => "white-text" %>
+            </div>
+          </div>
+        </footer>
+
+<script>
+  $(document).ready(function() { $(".dropdown-button").dropdown();});
+  $('.tooltipped').tooltip({delay: 50});
+  $('select').material_select();
+</script>
+
+</body>
+</html>

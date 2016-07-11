@@ -1,0 +1,14 @@
+<% @page_title = "New Order" %>
+<div>
+  <h2>Create Order</h2>
+
+  <%= form_for(:order, :url => {:action => 'create'}) do |f| %>
+
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+
+    <div>
+      <%= submit_tag("Create Order") %>
+    </div>
+
+  <% end %>
+</div>
