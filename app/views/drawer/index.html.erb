@@ -1,16 +1,26 @@
 <% @page_title = "Drawer App" %>
 <!-- <div class="container "> -->
-  <div class="row valign" id="linha">
-    <div class="col s3">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<div class="row " id="linha">
+    <div class="col s1">
+        <a class="waves-effect waves-light btn" id="addRow"> Row</a>
     </div>
-    <div class="col s9">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <div class="col s11">
+        <div class="col s12 blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error atque nobis itaque ab, facilis delectus? Quae ad nemo, est consectetur explicabo, possimus aut repellendus. Cumque culpa, neque magnam nam recusandae.</div>
     </div>
-  </div>
+</div>
 <!-- </div> -->
 
 <script type="text/javascript">
-  // $("#linha").css({"backgroundColor": "yellow", "height": "450px", "width":"650px", "margin": "0 auto"});
-  // console.log("Fabio");
+    // $("#linha").css({"backgroundColor": "yellow", "height": "450px", "width":"650px", "margin": "0 auto"}); console.log("Fabio");
+    $("#addRow").on("click", function () {
+        var count = $(".col.s12.blue").length;
+        debugger;
+        if (count >= 1 && count <= 6) {
+            var div = "<div class='col s12 blue'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error atque nobis itaque ab, facilis delectus? Quae ad nemo, est consectetur explicabo, possimus aut repellendus. Cumque culpa, neque magnam nam recusandae.</div>";
+            $(div).appendTo(".col.s11");
+            count++;
+        } else {
+            alert("Fabio");
+        }
+    });
 </script>
