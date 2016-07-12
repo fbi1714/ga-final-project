@@ -1,70 +1,94 @@
 <% @page_title = "Drawer App" %>
 
-<div class="row " id="linha">
-    <div class="col s1">
-        <ul class="collection">
-            <li class="collection-item">
-                <a class="waves-effect waves-light btn" id="addRow">Add Row</a></li>
-            <li class="collection-item">
-                <a class="waves-effect waves-light btn" id="delRow">Del Row</a></li>
-            <li class="collection-item">
-                <a class="waves-effect waves-light btn" id="addCol">Col</a></li>
-        </ul>
+<div class="row" id="principal">
+    <div class="col s2" id="botoes">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <a class="waves-effect waves-light btn" id="addCol">Add Col</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="waves-effect waves-light btn" id="delCol">Del Col</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="waves-effect waves-light btn" id="addRow">Add Row</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="waves-effect waves-light btn" id="delRow">Del Row</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="col s11">
-        <div class="col s12 blue" id="colunas">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error atque nobis itaque ab, facilis delectus? Quae ad nemo, est consectetur explicabo, possimus aut repellendus. Cumque culpa, neque magnam nam recusandae.</div>
+    <div class="col s10" id="tabela">
+        <table id="tableDrawer">
+            <tbody>
+                <tr id="myRow">
+                    <td colspan="9" rowspan="8">New Cell 1</td>
+                </tr>
+                <tr id="myRow">
+                    <td colspan="9" rowspan="8">New Cell 1</td>
+                </tr>
+
+            </tbody>
+        </table>
     </div>
 </div>
 
 <script type="text/javascript">
 
-    $("#addRow").on("click", function () {
-        var count = $(".col.s12.blue").length;
+    $("#addCol").on("click", function () {
+        var count = document.getElementById("tableDrawer").rows[0].cells.length;
         // debugger;
-        if (count >= 1 && count <= 6) {
-            var div = "<div class='col s12 blue'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error atque nobis itaque ab, facilis delectus? Quae ad nemo, est consectetur explicabo, possimus aut repellendus. Cumque culpa, neque magnam nam recusandae.</div>";
-            $(div).appendTo(".col.s11");
+
+        if (count >= 1 && count <= 8) {
+            var row = document.getElementById("myRow");
+            var x = row.insertCell(count);
             count++;
+            x.innerHTML = "New cell " + count;
         } else {
             alert("Fabio");
         }
     });
 
-    $("#delRow").on("click", function () {
-        var count = $(".col.s12.blue").length;
+    $("#delCol").on("click", function () {
+        var count = document.getElementById("tableDrawer").rows[0].cells.length;
         // debugger;
-        if (count >= 2 && count <= 6) {
-            debugger;
-            $("div.col.s12.blue").closest("div")[count-1].remove();
+        if (count > 1 && count <= 9) {
+            document.getElementById("myRow").deleteCell(count - 1);
             count--;
         } else {
             alert("Fabio");
         }
     });
 
-    $("#addCol").on("click", function () {
-        var re = /col s\d+ blue/;
-        var str = $("#linha div.col.s11 > .col").attr("class");
-        var m;
+    $("#addRow").on('click', function () {
+        var count = document.getElementById("tableDrawer").rows.length;
+        if (count >= 1 && count < 6) {
+            var table = document.getElementById("tableDrawer")
+            var clnNode = document.getElementById("myRow").cloneNode(true);
+            table.insertBefore(clnNode, table.lastChild);
+            count++
+        } else {
+            alert("Fabio");
+        }
+    });
 
-        if ((m = re.exec(str)) !== null) {
-            var temp = parseInt(/\d+/.exec(m))
-            var count = parseInt(/\d+/.exec(m));
-            if (count > 0) {
-                count--;
-
-                var div = "<div class='col s" + count + " blue'>" + count + "</div>"
-                var counterDiv = "<div class='col s" + (12 - count) + " blue'>" + (12 - count) + "</div>"
-                // debugger;
-                $(counterDiv).appendTo("div.col.s11");
-                // $("div.col.s11 > .col").remove();
-                var name = counterDiv.substr(12, 12);
-                $(div).appendTo("div.col.s11");
-            } else {
-                return
-            }
-
-            // View your result using the m-variable. eg m[0] etc.
+    $("#delRow").on('click', function () {
+        var count = document.getElementById("tableDrawer").rows.length;
+        if (count > 1 && count <= 6) {
+            var table = document.getElementById("tableDrawer")
+            table.deleteRow(count-1);
+            count--;
+        } else {
+            alert("Fabio");
         }
     });
 </script>
