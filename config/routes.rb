@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/logout' => 'session#destroy', :as => 'logout'
 
+  get '/table' => 'drawer#table'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

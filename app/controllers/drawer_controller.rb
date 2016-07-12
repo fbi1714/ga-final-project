@@ -4,6 +4,10 @@ class DrawerController < ApplicationController
   def index
   end
 
+  def table
+
+  end
+
 
   private
 

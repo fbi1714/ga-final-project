@@ -4,17 +4,15 @@
     <div class="col s1">
         <ul class="collection">
             <li class="collection-item">
-                <a class="waves-effect waves-light btn" id="addRow">
-                    Row</a>
-            </li>
+                <a class="waves-effect waves-light btn" id="addRow">Add Row</a></li>
             <li class="collection-item">
-                <a class="waves-effect waves-light btn" id="addCol">
-                    Col</a>
-            </li>
+                <a class="waves-effect waves-light btn" id="delRow">Del Row</a></li>
+            <li class="collection-item">
+                <a class="waves-effect waves-light btn" id="addCol">Col</a></li>
         </ul>
     </div>
     <div class="col s11">
-        <div class="col s12 blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error atque nobis itaque ab, facilis delectus? Quae ad nemo, est consectetur explicabo, possimus aut repellendus. Cumque culpa, neque magnam nam recusandae.</div>
+        <div class="col s12 blue" id="colunas">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error atque nobis itaque ab, facilis delectus? Quae ad nemo, est consectetur explicabo, possimus aut repellendus. Cumque culpa, neque magnam nam recusandae.</div>
     </div>
 </div>
 
@@ -22,7 +20,7 @@
 
     $("#addRow").on("click", function () {
         var count = $(".col.s12.blue").length;
-        debugger;
+        // debugger;
         if (count >= 1 && count <= 6) {
             var div = "<div class='col s12 blue'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error atque nobis itaque ab, facilis delectus? Quae ad nemo, est consectetur explicabo, possimus aut repellendus. Cumque culpa, neque magnam nam recusandae.</div>";
             $(div).appendTo(".col.s11");
@@ -32,9 +30,21 @@
         }
     });
 
+    $("#delRow").on("click", function () {
+        var count = $(".col.s12.blue").length;
+        // debugger;
+        if (count >= 2 && count <= 6) {
+            debugger;
+            $("div.col.s12.blue").closest("div")[count-1].remove();
+            count--;
+        } else {
+            alert("Fabio");
+        }
+    });
+
     $("#addCol").on("click", function () {
         var re = /col s\d+ blue/;
-        var str = $(".col.s11").next().attr("class");
+        var str = $("#linha div.col.s11 > .col").attr("class");
         var m;
 
         if ((m = re.exec(str)) !== null) {
@@ -42,12 +52,19 @@
             var count = parseInt(/\d+/.exec(m));
             if (count > 0) {
                 count--;
-                console.log(count);
+
+                var div = "<div class='col s" + count + " blue'>" + count + "</div>"
+                var counterDiv = "<div class='col s" + (12 - count) + " blue'>" + (12 - count) + "</div>"
+                // debugger;
+                $(counterDiv).appendTo("div.col.s11");
+                // $("div.col.s11 > .col").remove();
+                var name = counterDiv.substr(12, 12);
+                $(div).appendTo("div.col.s11");
             } else {
                 return
             }
 
-        // View your result using the m-variable. eg m[0] etc.
-    }
-});
+            // View your result using the m-variable. eg m[0] etc.
+        }
+    });
 </script>

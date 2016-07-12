@@ -93,26 +93,28 @@ input[type=text]#icon_prefix {
     font-weight: bold;
 }
 //DRAWER APP STYLING
-.container#drawerMain {
-    // height: 450px;
-    // width: 660px;
-    border: 4px solid #000;
-}
-.responsive-table#drawerTable {
-    border: 1px solid #000;
-}
-#drawerTable tr {
-    border: 1px solid #000;
-}
-.row#linha {
-  // padding-right: 2%;
+#principal{
+  border: 3px solid hotpink;
 }
 
-#linha .col.s11 {
-    border: 2px solid #000;
-    background-color: #ff0;
-    height: 100%;
+#botoes{
+  border: 3px solid #0f0;
+}
+
+#tabela{
+  border: 3px solid #0ff;
+}
+#myRow td{
+  border: 3px solid #00f;
+  text-align: center;
+}
+div#tabela.col.s10{
+  padding: 0;
+
 }
 div.col.s11{
   padding: 0;
+}
+tr#myRow{
+  height: 100%;
 }
