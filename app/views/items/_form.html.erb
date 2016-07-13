@@ -1,37 +1,46 @@
 <%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+<% if @item.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@item.errors.count, "error") %>
+        prohibited this item from being saved:</h2>
 
-      <ul>
-      <% @item.errors.full_messages.each do |message| %>
+    <ul>
+        <% @item.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+<div class="row">
+<table id="formItems">
+    <thead>
+        <tr>
+            <th><%= f.label :serie %></th>
+            <th><%= f.label :height %></th>
+            <th><%= f.label :number_drawers %></th>
+            <th><%= f.label :double_door %></th>
+            <th><%= f.label :single_door %></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= f.text_field :serie %></td>
+            <td><%= f.number_field :height %></td>
+            <td><%= f.number_field :number_drawers %></td>
+            <td>
+              <%= f.check_box :double_door, :id => "double" %>
+              <label for="double"></label>
+            </td>
+            <td>
+              <%= f.check_box :single_door, :id => "single" %>
+              <label for="single"></label>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="actions">
+    <%= f.submit "Update Item", class: "waves-effect waves-light blue-grey lighten-2 btn" %>
 
-  <div class="field">
-    <%= f.label :serie %><br>
-    <%= f.text_field :serie %>
-  </div>
-  <div class="field">
-    <%= f.label :height %><br>
-    <%= f.number_field :height %>
-  </div>
-  <div class="field">
-    <%= f.label :number_drawers %><br>
-    <%= f.number_field :number_drawers %>
-  </div>
-  <div class="field">
-    <%= f.label :double_door %><br>
-    <%= f.check_box :double_door %>
-  </div>
-  <div class="field">
-    <%= f.label :single_door %><br>
-    <%= f.check_box :single_door %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
