@@ -10,12 +10,11 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @order = Order.find(params[:id])
   end
 
   def order
-    # raise
     @items = Item.where( order_id: params[:order_id] )
-    # binding.pry
   end
 
   # GET /items/new

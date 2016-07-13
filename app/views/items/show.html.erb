@@ -1,29 +1,34 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="container">
+    <h5 class="title">MODULE
+        <%= @item.serie + @item.height.to_s + "-" + @item.number_drawers.to_s + ( @item.double_door ? "DD" : "" ) + ( @item.single_door ? "D" : "" ) %></h3>
 
-<p>
-  <strong>Serie:</strong>
-  <%= @item.serie %>
-</p>
+    <table id="showItem">
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Order</th>
+                <th>Serie</th>
+                <th>Size</th>
+                <th>Number of Drawers</th>
+                <th>Doors</th>
+            </tr>
+        </thead>
 
-<p>
-  <strong>Height:</strong>
-  <%= @item.height %>
-</p>
+        <tbody>
+            <tr>
+                <td><%= @order.description %></td>
+                <td><%= @order.order_number %></td>
+                <td><%= @item.serie %></td>
+                <td><%= @item.height %></td>
+                <td><%= @item.number_drawers %></td>
+                <td><%= ( @item.double_door ? "DOUBLE" : "" ) + ( @item.single_door ? "SINGLE" : "" )%></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
 
-<p>
-  <strong>Number drawers:</strong>
-  <%= @item.number_drawers %>
-</p>
-
-<p>
-  <strong>Double door:</strong>
-  <%= @item.double_door %>
-</p>
-
-<p>
-  <strong>Single door:</strong>
-  <%= @item.single_door %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+    <%= link_to 'Edit', edit_item_path(@item) %>
+    |
+    <%= link_to 'Back', items_path %>
+</div>
