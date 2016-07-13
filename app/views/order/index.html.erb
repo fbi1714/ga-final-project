@@ -17,7 +17,9 @@
     <tr>
       <!-- <td><%#= order.id %></td> -->
       <td><%= order.description %></td>
-      <td><%= order.order_number.to_s[0..2]%>.<%= order.order_number.to_s[3..4] %>.<%= order.order_number.to_s[5..7] %></td>
+      <td>
+        <%= order.order_number.to_s[0..2]%>.<%= order.order_number.to_s[3..4] %>.<%= order.order_number.to_s[5..7] %>
+      </td>
       <td><%= order.created_at.strftime("%d/%m/%Y : %X")  %></td>
       <td><%= order.updated_at.strftime("%d/%m/%Y : %X")  %></td>
       <td>

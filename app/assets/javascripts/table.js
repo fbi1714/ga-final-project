@@ -1,12 +1,13 @@
     $(document).ready(function() {
-        // var setEvenHeights = function () {
-        //   var count = $("#tableDrawer tr").length;
-        //   var tableHeight = $("table").height();
-        //   var evenHeights = tableHeight / count;
-        //   $("#tableDrawer tr").css("height", evenHeights + "px");
-        // }
+        var setEvenHeights = function () {
+          var count = $("#tableDrawer tr").length;
+          var tableHeight = 450;
+          var evenHeights = tableHeight / count;
+          $("#tableDrawer tr").css("height", evenHeights + "px");
+        }
 
         $("#addCol").on("click", function() {
+          setEvenHeights();
             var count = document.getElementById("tableDrawer").rows[0].cells.length;
             // debugger;
 
@@ -18,7 +19,6 @@
             } else {
                 alert("Fabio");
             }
-            // setEvenHeights();
         });
 
         $("#delCol").on("click", function() {
@@ -30,7 +30,7 @@
             } else {
                 alert("Fabio");
             }
-            // setEvenHeights();
+            setEvenHeights();
         });
 
         $("#addRow").on('click', function() {
@@ -43,7 +43,7 @@
             } else {
                 alert("Fabio");
             }
-            // setEvenHeights();
+            setEvenHeights();
         });
 
         $("#delRow").on('click', function() {
@@ -55,6 +55,6 @@
             } else {
                 alert("Fabio");
             }
-            // setEvenHeights();
+            setEvenHeights();
         });
 });
