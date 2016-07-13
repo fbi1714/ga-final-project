@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
-
-
   resources :items do
-    get "/drawer" => "drawer#table"
+    get "/drawer" => "drawer#index"
     post "/drawer" => "drawer#create"
   end
+
   root 'session#new'
 
   resources :users
@@ -16,7 +15,6 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/logout' => 'session#destroy', :as => 'logout'
 
-  get '/table' => 'drawer#table'
 
 
 

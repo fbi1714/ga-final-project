@@ -1,1 +1,39 @@
-<h1>Nada</h1>
+<% @page_title = "Drawer App" %>
+
+<div class="row" id="principal">
+    <div class="col s2" id="botoes">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <a class="waves-effect waves-light btn" id="addCol">Add Col</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="waves-effect waves-light btn" id="delCol">Del Col</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="waves-effect waves-light btn" id="addRow">Add Row</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="waves-effect waves-light btn" id="delRow">Del Row</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col s10" id="tabela">
+        <table id="tableDrawer">
+            <tbody>
+                <tr id="myRow">
+                    <td contenteditable="true">New Cell 1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -4,10 +4,6 @@ class DrawerController < ApplicationController
   def index
   end
 
-  def table
-
-  end
-
   def create
     params[:content].each do |cell|
       row = cell[1]["row"]
