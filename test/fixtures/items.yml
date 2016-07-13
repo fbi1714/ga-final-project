@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  serie: MyString
+  height: 1
+  number_drawers: 1
+  double_door: false
+  single_door: false
+
+two:
+  serie: MyString
+  height: 1
+  number_drawers: 1
+  double_door: false
+  single_door: false

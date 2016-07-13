@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Serie:</strong>
+  <%= @item.serie %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @item.height %>
+</p>
+
+<p>
+  <strong>Number drawers:</strong>
+  <%= @item.number_drawers %>
+</p>
+
+<p>
+  <strong>Double door:</strong>
+  <%= @item.double_door %>
+</p>
+
+<p>
+  <strong>Single door:</strong>
+  <%= @item.single_door %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

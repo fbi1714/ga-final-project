@@ -8,6 +8,15 @@ class DrawerController < ApplicationController
 
   end
 
+  def create
+    params[:content].each do |cell|
+      row = cell[1]["row"]
+      column = cell[1]["column"]
+      text = cell[1]["text"]
+
+      # Make a new record of all of those things in the Parts table
+    end
+  end
 
   private
 

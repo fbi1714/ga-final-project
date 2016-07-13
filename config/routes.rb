@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
 
+  resources :items do
+    get "/drawer" => "drawer#table"
+    post "/drawer" => "drawer#create"
+  end
   root 'session#new'
 
   resources :users
