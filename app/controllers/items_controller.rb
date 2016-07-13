@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    # binding.pry
+    # @items = Item.where(order_id: params[:id])
   end
 
   # GET /items/1
