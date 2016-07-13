@@ -1,3 +1,33 @@
 // Place all the styles related to the drawer controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//DRAWER APP STYLING
+#principal{
+  border: 3px solid hotpink;
+}
+#botoes{
+  border: 3px solid #0f0;
+}
+table#tableDrawer {
+  height: 450px;
+}
+#tabela{
+  border: 3px solid #0ff;
+}
+#myRow td{
+  border: 3px solid #00f;
+  text-align: center;
+}
+div#tabela.col.s10{
+  padding: 0;
+
+}
+div.col.s11{
+  padding: 0;
+}
+tr#myRow{
+  // height: 100%;
+}
+#botoes td{
+  text-align: center;
+}
