@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-<h4 class="title">Listing Items</h4>
+<h5 class="title">Listing Items</h5>
 
 <table id="indexItems">
   <thead>
     <tr>
       <th>Order</th>
-      <th>Module</th>
+      <th colspan="1">Module</th>
     </tr>
   </thead>
 
@@ -18,14 +18,15 @@
         <td>
         <%= link_to item_path( item ) do %>
           <i class="material-icons color tooltipped  data-position="bottom" data-delay="3" data-tooltip="Module Details" ">reorder</i>
-        <% end %></td>
-        <td>
+        <% end %>
+
         <%= link_to edit_item_path( item ) do %>
           <i class="material-icons color tooltipped data-position="bottom" data-delay="3" data-tooltip="Edit Module" ">edit</i>
-        <% end %></td>
-        <td><%= link_to item_path( item ), :method => :delete, data: {confirm: "Are you sure?"} do %>
+        <% end %>
+
+        <%= link_to item_path( item ), :method => :delete, data: {confirm: "Are you sure?"} do %>
           <i class="material-icons color tooltipped data-position="bottom" data-delay="3" data-tooltip="Delete Module" ">delete</i>
-        <% end %></td>
+        <% end %> </td>
       </tr>
     <% end %>
   </tbody>

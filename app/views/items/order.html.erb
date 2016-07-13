@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-<h4 class="title">Listing Items</h4>
+<h5 class="title">Items from order  #<%= @order.order_number.to_s[0..2] + "." + @order.order_number.to_s[3..4] + "." + @order.order_number.to_s[5..7]%></h5>
 
 <table id="indexItems">
   <thead>
     <tr>
-      <th>Order</th>
-      <th colspan="4">Module</th>
+      <th>Module</th>
+      <th colspan="4">Actions</th>
     </tr>
   </thead>
 
@@ -14,18 +14,18 @@
 
     <% @items.each do |item| %>
       <tr>
-        <td><%= link_to (item.order.order_number.to_s[0..2] + "." + item.order.order_number.to_s[3..4] + "." + item.order.order_number.to_s[5..7]), order_index_path %></td>
-        <td><%= link_to(item.serie + item.height.to_s + "-" + item.number_drawers.to_s + ( item.double_door ? "DD" : "" ) + ( item.single_door ? "D" : "" ), item_drawer_path(item) ) %></td>
+        <td><%= link_to(item.serie + item.height.to_s + "-" + item.number_drawers.to_s + ( item.double_door ? "DD" : "" ) + ( item.single_door ? "D" : "" ), item_path( item ) ) %></td>
         <td>
-        <%= link_to item_path( item ) do %>
-          <i class="material-icons color tooltipped  data-position="left" data-delay="10" data-tooltip="reorder" ">reorder</i>
-        <% end %></td>
-        <td>
+        <%= link_to  item_drawer_path(item) do %>
+          <i class="material-icons color tooltipped  data-position="left" data-delay="10" data-tooltip="Module Detais" ">reorder</i>
+        <% end %>
+
         <%= link_to edit_item_path( item ) do %>
-          <i class="material-icons color tooltipped data-position="bottom" data-delay="10" data-tooltip="edit" ">edit</i>
-        <% end %></td>
-        <td><%= link_to item_path( item ), :method => :delete, data: {confirm: "Are you sure?"} do %>
-          <i class="material-icons color tooltipped data-position="top" data-delay="10" data-tooltip="delete" ">delete</i>
+          <i class="material-icons color tooltipped data-position="bottom" data-delay="10" data-tooltip="Edit Module" ">edit</i>
+        <% end %>
+
+        <%= link_to item_path( item ), :method => :delete, data: {confirm: "Are you sure?"} do %>
+          <i class="material-icons color tooltipped data-position="right" data-delay="10" data-tooltip="Delete Module" ">delete</i>
         <% end %></td>
       </tr>
     <% end %>
@@ -34,5 +34,7 @@
 
 <br>
 
+<%= link_to 'Home', order_index_path  %>
+<span>|</span>
 <%= link_to 'New Item', new_item_path %>
 </div>

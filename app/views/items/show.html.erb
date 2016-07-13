@@ -17,8 +17,8 @@
 
         <tbody>
             <tr>
-                <td><%= @order.description %></td>
-                <td><%= @order.order_number %></td>
+                <td><%= @ord[0]["description"] %></td>
+                <td><%= @ord[0]["order_number"].to_s[0..2] + "." + @ord[0]["order_number"].to_s[3..4] + "." + @ord[0]["order_number"].to_s[5..7] %></td>
                 <td><%= @item.serie %></td>
                 <td><%= @item.height %></td>
                 <td><%= @item.number_drawers %></td>
@@ -30,5 +30,6 @@
 
     <%= link_to 'Edit', edit_item_path(@item) %>
     |
-    <%= link_to 'Back', items_path %>
+    <%= link_to 'Home', root_path %>
+
 </div>
