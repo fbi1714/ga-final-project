@@ -39,7 +39,12 @@
 </div>
 
 <script type="text/javascript">
-
+    var setEvenHeights = function () {
+      var count = $("#tableDrawer tr").length;
+      var tableHeight = $("table").height();
+      var evenHeights = tableHeight / count;
+      $("#tableDrawer tr").css("height", evenHeights + "px");
+    }
     $("#addCol").on("click", function () {
         var count = document.getElementById("tableDrawer").rows[0].cells.length;
         // debugger;
@@ -52,6 +57,7 @@
         } else {
             alert("Fabio");
         }
+        setEvenHeights();
     });
 
     $("#delCol").on("click", function () {
@@ -63,6 +69,7 @@
         } else {
             alert("Fabio");
         }
+        setEvenHeights();
     });
 
     $("#addRow").on('click', function () {
@@ -75,6 +82,7 @@
         } else {
             alert("Fabio");
         }
+        setEvenHeights();
     });
 
     $("#delRow").on('click', function () {
@@ -86,5 +94,6 @@
         } else {
             alert("Fabio");
         }
+        setEvenHeights();
     });
 </script>
