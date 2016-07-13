@@ -5,13 +5,17 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
-    # binding.pry
-    # @items = Item.where(order_id: params[:id])
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
+  end
+
+  def order
+    # raise
+    @items = Item.where( order_id: params[:order_id] )
+    # binding.pry
   end
 
   # GET /items/new

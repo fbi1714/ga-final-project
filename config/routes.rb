@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root 'session#new'
 
   resources :users
-  resources :order
+  resources :order do
+    get "/items" => "items#order"
+  end
   resources :drawer
 
   get '/login' => 'session#new', :as => 'login'
