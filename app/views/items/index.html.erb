@@ -14,8 +14,10 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= link_to (item.order.order_number.to_s[0..2] + "." + item.order.order_number.to_s[3..4] + "." + item.order.order_number.to_s[5..7]), order_index_path %></td>
-        <td><%= link_to(item.serie + item.height.to_s + "-" + item.number_drawers.to_s + ( item.double_door ? "DD" : "" ) + ( item.single_door ? "D" : "" ), item_drawer_path(item) ) %></td>
+        <td>
+          <%= link_to( (item.order.order_number.to_s[0..2] + "." + item.order.order_number.to_s[3..4] + "." + item.order.order_number.to_s[5..7]), order_index_path ) if item.order %>
+        </td>
+        <td><%= link_to(item.serie + item.height.to_s + "-" + item.number_drawers.to_s + ( item.double_door ? "DD" : "" ) + ( item.single_door ? "D" : "" ), item ) %></td>
         <td>
         <%= link_to item_path( item ) do %>
           <i class="material-icons color tooltipped  data-position="bottom" data-delay="3" data-tooltip="Module Details" ">reorder</i>
@@ -25,7 +27,7 @@
           <i class="material-icons color tooltipped data-position="bottom" data-delay="3" data-tooltip="Edit Module" ">edit</i>
         <% end %>
 
-        <%= link_to item_path( item ), :method => :delete, data: {confirm: "Are you sure?"} do %>
+        <%= link_to item_path( item ), :method => :delete, data: {behavior: "delete"} do %>
           <i class="material-icons color tooltipped data-position="bottom" data-delay="3" data-tooltip="Delete Module" ">delete</i>
         <% end %> </td>
       </tr>

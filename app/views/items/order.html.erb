@@ -22,7 +22,7 @@
           <i class="material-icons color tooltipped data-position="bottom" data-delay="10" data-tooltip="Edit Module" ">edit</i>
         <% end %>
 
-        <%= link_to item_path( item ), :method => :delete, data: {confirm: "Are you sure?"} do %>
+        <%= link_to item_path( item ), :method => :delete, data: {behavior: "delete"} do %>
           <i class="material-icons color tooltipped data-position="right" data-delay="10" data-tooltip="Delete Module" ">delete</i>
         <% end %></td>
       </tr>

@@ -4,7 +4,7 @@
           var tableHeight = 450;
           var evenHeights = tableHeight / count;
           $("#tableDrawer tr").css("height", evenHeights + "px");
-          $("td").attr("contenteditable", "true");
+          $("#tableDrawer td").attr("contenteditable", "true");
         }
 
         var setEvenWidths = function () {
@@ -16,7 +16,7 @@
             width: evenWidth + "px",
             "max-width": evenWidth + "px"
           });
-          $("td").attr("contenteditable", "true");
+          $("#tableDrawer td").attr("contenteditable", "true");
         }
 
 
