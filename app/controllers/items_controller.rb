@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @item = Item.find(params[:id])
-    @ord = Order.joins(:items).where(:items => {:id => params[:id]})
+    @order = Order.joins(:items).where(:items => {:id => params[:id]})
   end
 
   def order
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
 
-    
+
 
     respond_to do |format|
       if @item.save

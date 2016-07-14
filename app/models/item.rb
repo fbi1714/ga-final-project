@@ -16,4 +16,10 @@
 class Item < ActiveRecord::Base
   belongs_to :order
   has_many :drawers
+  after_create :create_drawers
+
+  private
+  def create_drawers
+    # binding.pry
+  end
 end
