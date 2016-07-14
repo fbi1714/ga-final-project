@@ -30,7 +30,7 @@
         <%= link_to edit_order_path( order.id ) do %>
           <i class="material-icons color tooltipped data-position="bottom" data-delay="10" data-tooltip="edit" ">edit</i>
         <% end %>
-        <%= link_to order_path( order.id ), :method => :delete, data: {confirm: "Are you sure?"} do %>
+        <%= link_to order_path( order.id ), :method => :delete, data: {confirm: "Are you sure?", :'confirm-button-text' => 'Yes', :'cancel-button-text' => 'Cancel', :'confirm-button-color' => '#66CD00', :'sweet-alert-type' => 'info', text: 'This is a subtitle',} do %>
           <i class="material-icons color tooltipped data-position="top" data-delay="10" data-tooltip="delete" ">delete</i>
         <% end %>
       </td>

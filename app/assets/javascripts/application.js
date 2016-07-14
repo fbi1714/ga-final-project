@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require money.min.js
 //= require_tree .
-// = require materialize-sprockets
+//= require materialize-sprockets
 //= require underscore/underscore
 //= require sweet-alert
 //= require sweet-alert-confirm
