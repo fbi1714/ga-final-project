@@ -1,6 +1,28 @@
-<h2><%= @user.name %></h2>
-
-<p>Email: <%= @user.email %></p>
-<p>Password digest: <%= @user.password_digest %></p>
-<%= link_to( "Edit user", edit_user_path( @user )) %> |
-<%= link_to( "Delete user", user_path( @user ), :method => :delete ) %>
+<div class="container">
+    <div class="row">
+        <h5 class="title"><%= @user.name %></h5>
+        <table>
+            <thead>
+                <tr>
+                    <td>Email:</td>
+                    <td>Password Hash:</td>
+                    <td>Actions:</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= @user.email %></td>
+                    <td><%= @user.password_digest %></td>
+                    <td>
+                        <%= link_to edit_user_path( @user ) do %>
+                        <i class="material-icons color tooltipped data-position=" top" data-delay=" 10" data-tooltip=" Edit User" ">edit</i>
+                        <% end %>
+                        <%= link_to edit_user_path( @user ), :method => :delete  do %>
+                        <i class="material-icons color tooltipped data-position=" top" data-delay=" 10" data-tooltip=" Delete User" ">delete</i>
+                        <% end %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
