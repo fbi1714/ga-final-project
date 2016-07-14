@@ -20,6 +20,8 @@ class Item < ActiveRecord::Base
 
   private
   def create_drawers
-    # binding.pry
+    (1..self.number_drawers).to_a.each do |num|
+      self.drawers << Drawer.create( :drawer_number => num, :qty_rows => 1, :qty_columns => 1 )
+    end
   end
 end

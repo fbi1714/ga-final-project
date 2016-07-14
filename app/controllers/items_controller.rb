@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @item = Item.find(params[:id])
-    @order = Order.joins(:items).where(:items => {:id => params[:id]})
+    @orderNum = Order.joins(:items).where(:items => {:id => params[:id]})
   end
 
   def order
@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    @order = Order.find params[:order_id]
     @item = Item.new
   end
 
@@ -31,9 +32,9 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
+    @order = Order.find params[:order_id]
     @item = Item.new(item_params)
-
-
+    @item.order_id = @order.id
 
     respond_to do |format|
       if @item.save

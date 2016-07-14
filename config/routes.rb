@@ -2,15 +2,17 @@ Rails.application.routes.draw do
 
   resources :parts
   resources :items do
-    get "/drawer" => "drawer#index"
-    post "/drawer" => "drawer#create"
+    get "/drawers/:draw_id" => "drawer#index", :as => "drawers_show"
+    post "/drawers/:draw_id" => "drawer#create"
   end
 
   root 'session#new'
 
   resources :users
   resources :order do
+    post "/items/new" => "items#create"
     get "/items" => "items#order"
+    get "/items/new" => "items#new"
   end
   resources :drawer
 

@@ -18,8 +18,8 @@
 
         <tbody>
             <tr>
-                <td><%= @order[0]["description"] %></td>
-                <td><%= @order[0]["order_number"].to_s[0..2] + "." + @ord[0]["order_number"].to_s[3..4] + "." + @ord[0]["order_number"].to_s[5..7] %></td>
+                <td><%= @item.order.order_number %></td>
+                <td><%= @item.order.description %></td>
                 <td><%= @item.serie %></td>
                 <td><%= @item.height %></td>
                 <td><%= @item.number_drawers %></td>
@@ -27,6 +27,13 @@
             </tr>
         </tbody>
     </table>
+
+    <% @item.drawers.each do |drawer| %>
+      <%= link_to drawer.drawer_number, item_drawers_show_path(@item, drawer) %>
+      <br>
+    <% end %>
+
+
     <br>
 
     <%= link_to 'Edit', edit_item_path(@item) %>

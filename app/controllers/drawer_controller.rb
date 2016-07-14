@@ -5,15 +5,19 @@ class DrawerController < ApplicationController
   end
 
   def create
+    @drawer = Drawer.find params[:draw_id]
+    @item = Item.find params[:item_id]
 
-    binding.pry
     params[:content].each do |cell|
       row = cell[1]["row"]
       column = cell[1]["column"]
       text = cell[1]["text"]
 
-      Part.create :column_number => column, :row_number => row, :content => text
+      p = Part.create :column_number => column, :row_number => row, :cell_content => text
+      @drawer.parts << p
     end
+
+    render :json => { :status => 200 }o
   end
 
   private

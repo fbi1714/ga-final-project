@@ -11,6 +11,7 @@ class OrderController < ApplicationController
   end
 
   def create
+    binding.pry
     @order = Order.new order_params
     if @order.save
       redirect_to order_index_path
