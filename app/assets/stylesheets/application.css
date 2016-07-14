@@ -11,7 +11,6 @@
  * file per style scope.
  *
  *= require jquery-ui
- *= require sweet-alert
  *= require_tree .
  *= require_self
  */
