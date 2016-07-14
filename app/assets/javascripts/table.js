@@ -30,7 +30,7 @@
                 count++;
                 x.innerHTML = "New cell " + count;
             } else {
-                alert("Fabio");
+                swal({"title": "Too many columns", confirmButtonColor: "#90a4ae"});
             }
             setEvenHeights();
             setEvenWidths();
@@ -43,7 +43,7 @@
                 document.getElementById("myRow").deleteCell(count - 1);
                 count--;
             } else {
-                alert("Fabio");
+                swal({"title": "No more columns to delete", confirmButtonColor: "#90a4ae"});
             }
             setEvenHeights();
             setEvenWidths();
@@ -57,7 +57,7 @@
                 table.insertBefore(clnNode, table.lastChild);
                 count++
             } else {
-                alert("Fabio");
+                swal({"title": "Too many rows", confirmButtonColor: "#90a4ae"});
             }
             setEvenHeights();
             setEvenWidths();
@@ -70,7 +70,7 @@
                 table.deleteRow(count - 1);
                 count--;
             } else {
-                alert("Fabio");
+                swal({"title": "No more rows to delete", confirmButtonColor: "#90a4ae"});
             }
             setEvenHeights();
             setEvenWidths();
