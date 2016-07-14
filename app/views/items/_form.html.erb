@@ -24,9 +24,9 @@
     </thead>
     <tbody>
         <tr>
-            <td><%= f.text_field :serie %></td>
-            <td><%= f.number_field :height %></td>
-            <td><%= f.number_field :number_drawers %></td>
+            <td><%= f.text_field :serie, maxlength: 1 %></td>
+            <td><%= f.number_field :height, within: 500...4000 %></td>
+            <td><%= f.number_field :number_drawers, min: 0, max: 99 %></td>
             <td>
               <%= f.check_box :double_door, :id => "double" %>
               <label for="double"></label>

@@ -18,3 +18,5 @@
 //= require_tree .
 // = require materialize-sprockets
 //= require underscore/underscore
+//= require sweet-alert
+//= require sweet-alert-confirm

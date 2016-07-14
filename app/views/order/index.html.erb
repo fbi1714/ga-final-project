@@ -30,12 +30,9 @@
         <%= link_to edit_order_path( order.id ) do %>
           <i class="material-icons color tooltipped data-position="bottom" data-delay="10" data-tooltip="edit" ">edit</i>
         <% end %>
-        <%= link_to order_path( order.id ), :method => :delete do %>
+        <%= link_to order_path( order.id ), :method => :delete, data: {confirm: "Are you sure?"} do %>
           <i class="material-icons color tooltipped data-position="top" data-delay="10" data-tooltip="delete" ">delete</i>
         <% end %>
-        <%#= link_to( "New", new_order_path( order.id )) %>
-        <%# link_to( "Edit", edit_order_path( order.id )) %>
-        <%# link_to( "Delete", order_path( order.id ), :method => :delete ) %>
       </td>
     </tr>
   </tbody>

@@ -1,39 +1,56 @@
 <!-- <p id="notice"><%= notice %></p> -->
 <div class="container">
-  <p>Show Item</p>
-    <h5 class="title">MODULE
-        <%= @item.serie + @item.height.to_s + "-" + @item.number_drawers.to_s + ( @item.double_door ? "DD" : "" ) + ( @item.single_door ? "D" : "" ) %></h3>
+    <p>Show Item</p>
+    <div class="section">
+        <h5 class="title">MODULE
+            <%= @item.serie + @item.height.to_s + "-" + @item.number_drawers.to_s + ( @item.double_door ? "DD" : "" ) + ( @item.single_door ? "D" : "" ) %></h5>
 
-    <table id="showItem">
-        <thead>
-            <tr>
-                <th>Client</th>
-                <th>Order</th>
-                <th>Serie</th>
-                <th>Size</th>
-                <th>Number of Drawers</th>
-                <th>Doors</th>
-            </tr>
-        </thead>
+        <table id="showItem">
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Order</th>
+                    <th>Serie</th>
+                    <th>Size</th>
+                    <th>Number of Drawers</th>
+                    <th>Doors</th>
+                </tr>
+            </thead>
 
-        <tbody>
-            <tr>
-                <td><%= @item.order.order_number %></td>
-                <td><%= @item.order.description %></td>
-                <td><%= @item.serie %></td>
-                <td><%= @item.height %></td>
-                <td><%= @item.number_drawers %></td>
-                <td><%= ( @item.double_door ? "DOUBLE" : "" ) + ( @item.single_door ? "SINGLE" : "" )%></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <% @item.drawers.each do |drawer| %>
-      <%= link_to drawer.drawer_number, item_drawers_show_path(@item, drawer) %>
-      <br>
-    <% end %>
-
-
+            <tbody>
+                <tr>
+                    <td><%= @item.order.order_number %></td>
+                    <td><%= @item.order.description %></td>
+                    <td><%= @item.serie %></td>
+                    <td><%= @item.height %></td>
+                    <td><%= @item.number_drawers %></td>
+                    <td><%= ( @item.double_door ? "DOUBLE" : "" ) + ( @item.single_door ? "SINGLE" : "" )%></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="divider"></div>
+    <div class="section">
+      <h5 class="title">Drawers List</h5>
+        <table id="listDrawers">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Qty of Horizontal Divisions</th>
+                    <th>Qty of Vertical Divisions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @item.drawers.each do |drawer| %>
+                <tr>
+                    <td><%= link_to drawer.drawer_number, item_drawers_show_path(@item, drawer) %></td>
+                    <td><%= drawer.qty_rows %></td>
+                    <td><%= drawer.qty_columns %></td>
+                </tr>
+            </tbody>
+            <% end %>
+        </table>
+    </div>
     <br>
 
     <%= link_to 'Edit', edit_item_path(@item) %>

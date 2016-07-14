@@ -17,7 +17,7 @@ class DrawerController < ApplicationController
       @drawer.parts << p
     end
 
-    render :json => { :status => 200 }o
+    render :json => { :status => 200 }
   end
 
   private
