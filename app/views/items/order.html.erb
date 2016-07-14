@@ -15,10 +15,11 @@
 
     <% @items.each do |item| %>
       <tr>
-        <td><%= link_to(item.serie + item.height.to_s + "-" + item.number_drawers.to_s + ( item.double_door ? "DD" : "" ) + ( item.single_door ? "D" : "" ), item_path( item ) ) %></td>
+        <td><%= link_to(item.serie + item.height.to_s + "-" + item.number_drawers.to_s + ( item.double_door ? "DD" : "" ) + ( item.single_door ? "D" : "" ), item_path( item ), { class: 'color tooltipped', title: '', data: { toggle: 'tooltip', position: 'left', tooltip: 'View Module Details', delay:'10' } } ) %></td>
+
         <td>
         <%= link_to  item_drawer_path(item) do %>
-          <i class="material-icons color tooltipped  data-position="left" data-delay="10" data-tooltip="Module Detais" ">reorder</i>
+          <i class="material-icons color tooltipped  data-position="left" data-delay="10" data-tooltip="Drawer Details" ">reorder</i>
         <% end %>
 
         <%= link_to edit_item_path( item ) do %>
@@ -38,4 +39,6 @@
 <%= link_to 'Home', order_index_path  %>
 <span>|</span>
 <%= link_to 'New Item', new_item_path %>
+<span>|</span>
+<%= link_to 'Back', :back %>
 </div>

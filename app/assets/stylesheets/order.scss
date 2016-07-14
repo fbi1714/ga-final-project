@@ -1,14 +1,15 @@
 // Place all the styles related to the order controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.title{
-  text-align: center;
-  color: rgba( 0, 0, 0, 0.75);
-
-  font-weight: bold;
-
+//= require jquery-ui/tooltip
+.title {
+    text-align: center;
+    color: rgba( 0, 0, 0, 0.75);
+    font-weight: bold;
 }
-
-div .pagination{
-  text-align: right;
+div .pagination {
+    text-align: right;
+}
+#orderTable td {
+    padding: 8px 5px;
 }

@@ -1,5 +1,5 @@
 var displayCurrency = function () {
-  console.log("Test")
+  // console.log("Test")
   var money = function(data) {
     fx.rates = data.rates;
 

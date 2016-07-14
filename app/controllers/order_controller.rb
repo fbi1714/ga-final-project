@@ -3,7 +3,7 @@ class OrderController < ApplicationController
   before_action :authorise
 
   def index
-    @posts = Order.paginate(:page => params[:page], :per_page => 2)
+    @posts = Order.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new

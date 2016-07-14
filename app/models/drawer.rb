@@ -11,5 +11,6 @@
 #
 
 class Drawer < ActiveRecord::Base
+  belongs_to :item
   has_many :parts
 end
