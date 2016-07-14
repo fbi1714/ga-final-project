@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
       query = "#{params[:text][:name]} time" if params[:text]
       result = Wolfram.fetch(query || 'Sydney Australia time')
       # to see the result 3as a hash of pods and assumptions:
-      @hash = Wolfram::HashPresenter.new(result).to_hash
+      if result
+        @hash = Wolfram::HashPresenter.new(result).to_hash
+      else
+        @hash = "Error"
+      end
     end
 
 end

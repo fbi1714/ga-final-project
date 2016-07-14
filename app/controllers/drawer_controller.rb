@@ -5,12 +5,14 @@ class DrawerController < ApplicationController
   end
 
   def create
+
+    binding.pry
     params[:content].each do |cell|
       row = cell[1]["row"]
       column = cell[1]["column"]
       text = cell[1]["text"]
 
-      # Make a new record of all of those things in the Parts table
+      Part.create :column_number => column, :row_number => row, :content => text
     end
   end
 

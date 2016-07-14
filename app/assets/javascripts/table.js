@@ -1,13 +1,26 @@
-    $(document).ready(function() {
+    $(document).on("turbolinks:load", function() {
         var setEvenHeights = function () {
           var count = $("#tableDrawer tr").length;
           var tableHeight = 450;
           var evenHeights = tableHeight / count;
           $("#tableDrawer tr").css("height", evenHeights + "px");
+          $("td").attr("contenteditable", "true");
         }
 
+        var setEvenWidths = function () {
+          console.log("TEST")
+          var count = $("#tableDrawer tr").eq(0).find("td").length
+          var tableWidth = $("#tableDrawer").width();
+          var evenWidth = tableWidth / count;
+          $("#tableDrawer td").css({
+            width: evenWidth + "px",
+            "max-width": evenWidth + "px"
+          });
+          $("td").attr("contenteditable", "true");
+        }
+
+
         $("#addCol").on("click", function() {
-          setEvenHeights();
             var count = document.getElementById("tableDrawer").rows[0].cells.length;
             // debugger;
 
@@ -19,6 +32,8 @@
             } else {
                 alert("Fabio");
             }
+            setEvenHeights();
+            setEvenWidths();
         });
 
         $("#delCol").on("click", function() {
@@ -31,6 +46,7 @@
                 alert("Fabio");
             }
             setEvenHeights();
+            setEvenWidths();
         });
 
         $("#addRow").on('click', function() {
@@ -44,6 +60,7 @@
                 alert("Fabio");
             }
             setEvenHeights();
+            setEvenWidths();
         });
 
         $("#delRow").on('click', function() {
@@ -56,5 +73,6 @@
                 alert("Fabio");
             }
             setEvenHeights();
+            setEvenWidths();
         });
 });
