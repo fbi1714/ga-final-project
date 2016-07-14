@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    @order = Order.find params[:order_id] if params[:order_id]
   end
 
   # POST /items

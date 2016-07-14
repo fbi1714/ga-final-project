@@ -28,6 +28,15 @@ var saveDrawer = function () {
       content: data
     }
   }).done(function () {
-    console.log("COMPLETE");
+    swal({
+      title: "Success!",
+      text: "You saved this drawer!",
+      type: "success",
+      confirmButtonText: "Cool"
+    });
   })
 };
+
+$(document).on("turbolinks:load", function () {
+  $("#saveDrawer").on("click", saveDrawer);
+});

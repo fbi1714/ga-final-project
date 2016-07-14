@@ -41,7 +41,8 @@
                 </tr>
             </thead>
             <tbody>
-                <% @item.drawers.each do |drawer| %>
+                <% @paginatedItems = @item.drawers.paginate(:page => params[:page], :per_page => 3) %>
+                <% @paginatedItems.each do |drawer| %>
                 <tr>
                     <td><%= link_to drawer.drawer_number, item_drawers_show_path(@item, drawer) %></td>
                     <td><%= drawer.qty_rows %></td>
@@ -50,13 +51,12 @@
             </tbody>
             <% end %>
         </table>
+        <p><%= will_paginate @paginatedItems, :previous_label => '<i class="material-icons">chevron_left</i>', :next_label => '<i class="material-icons">chevron_right</i>', :renderer => ApplicationHelper::LinkRenderer %></p>
     </div>
     <br>
-
     <%= link_to 'Edit', edit_item_path(@item) %>
     |
     <%= link_to 'Home', root_path %>
     |
     <%= link_to "Back", :back %>
-
 </div>
