@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713050113) do
+ActiveRecord::Schema.define(version: 20160714025721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "drawers", force: :cascade do |t|
+    t.integer  "drawer_number"
+    t.integer  "qty_rows"
+    t.integer  "qty_columns"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "serie"
@@ -30,6 +38,12 @@ ActiveRecord::Schema.define(version: 20160713050113) do
   create_table "orders", force: :cascade do |t|
     t.text     "description"
     t.integer  "order_number"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "parts", force: :cascade do |t|
+    t.text     "cell_content"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :parts
   resources :items do
     get "/drawer" => "drawer#index"
     post "/drawer" => "drawer#create"
