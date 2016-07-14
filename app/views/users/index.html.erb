@@ -1,9 +1,23 @@
-<h2>All Users</h2>
-<hr>
-<% @users.each do |u| %>
-  <ul>
-    <li>Username: <%= link_to( u.name, user_path(u) ) %></li>
-    <li>Email: <%= u.email %></li>
-    <li>Password digest: <%= u.password_digest %></li>
-  </ul>
-<% end %>
+<div class="container">
+    <div class="row">
+        <h5 class="title">All Users</h5>
+        <table>
+          <thead>
+            <tr>
+              <td>Username:</td>
+              <td>Email:</td>
+              <td>Password Hash:</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |u| %>
+            <tr>
+                <td><%= link_to( u.name, user_path(u) ) %></td>
+                <td><%= u.email %></td>
+                <td><%= u.password_digest %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+</div>

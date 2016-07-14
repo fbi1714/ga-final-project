@@ -12,7 +12,6 @@
 <header>
   <!-- Dropdown Structure -->
   <ul id="dropdown1" class="dropdown-content">
-    <li><%= link_to "All users", users_path, :class => "blue-grey-text text-lighten-2" %></li>
     <li><%= link_to "View/Edit Profile", @current_user, :class => "blue-grey-text text-lighten-3" %></li>
     <li><%= link_to "Logout", logout_path( @current_user ), :method => :delete, :class => "blue-grey-text text-lighten-3" %></li>
   </ul>
