@@ -4,3 +4,15 @@
 input#item_serie{
   text-transform: uppercase;
 }
+input#item_height[type=number]:focus:not([readonly]) {
+    border-bottom: 1px solid #b0bec5;
+    box-shadow: 0 1px 0 0 #b0bec5;
+}
+input#item_number_drawers[type=number]:focus:not([readonly]) {
+    border-bottom: 1px solid #b0bec5;
+    box-shadow: 0 1px 0 0 #b0bec5;
+}
+input[type="checkbox"]:checked + label:before{
+  border-right: 2px solid #b0bec5;
+  border-bottom: 2px solid #b0bec5;
+}

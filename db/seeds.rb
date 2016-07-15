@@ -8,8 +8,15 @@
 
 User.destroy_all
 
-fabio = User.create :name => "Fabio", :email => 'fabio@bac.co', :password => 'chicken', :password_confirmation => 'chicken'
+fabio = User.create :name => "Fabio", :email => 'fabio@ga.co', :password => 'chicken', :password_confirmation => 'chicken'
 
 Order.destroy_all
 
-algol = Order.create :description => "Algol", :order_number => "90133421"
+metabo = Order.create :description => "Metabo", :order_number => "90242775"
+belga = Order.create :description => "Belga", :order_number => "90142554"
+
+Item.destroy_all
+
+Drawer.destroy_all
+
+Part.destroy_all

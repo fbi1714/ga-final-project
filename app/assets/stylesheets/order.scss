@@ -13,3 +13,7 @@ div .pagination {
 #orderTable td {
     padding: 8px 5px;
 }
+input#order_order_number[type=number]:focus:not([readonly]) {
+    border-bottom: 1px solid #b0bec5;
+    box-shadow: 0 1px 0 0 #b0bec5;
+}
