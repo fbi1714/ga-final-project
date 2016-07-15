@@ -29,10 +29,9 @@ var saveDrawer = function () {
     }
   }).done(function () {
     swal({
-      title: "Success!",
-      text: "You saved this drawer!",
-      type: "success",
-      confirmButtonText: "Cool"
+      title: "You saved this drawer!",
+      confirmButtonText: "Ok",
+      confirmButtonColor: "#90a4ae"
     });
   })
 };
